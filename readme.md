@@ -26,7 +26,7 @@ A production-style asynchronous webhook delivery platform built using:
 ---
 
 # Architecture
-
+```
 Producer Services
         |
         v
@@ -40,11 +40,11 @@ Producer Services
         |
         v
 Subscriber Webhooks
-
+```
 ---
 
 # Project Structure
-
+```
 app/
 ├── api/
 ├── services/
@@ -53,7 +53,7 @@ app/
 ├── schemas/
 ├── worker/
 └── main.py
-
+```
 ---
 
 # Setup
@@ -67,25 +67,35 @@ source venv/bin/activate
 
 
 ## Install Dependencies
+```
 pip install -r requirements.txt
+```
 
 ## Start Main Service
+```
 cd app
 uvicorn main:app --reload
+```
 
 ## Start Mock Receiver
+```
 uvicorn mock_receiver:app --port 9000 --reload
+```
 
 ## Swagger
 ### Main API:
+```
 http://127.0.0.1:8000/docs
+```
 
 ### Mock Receiver:
+```
 http://127.0.0.1:9000/docs
+```
 
 
 ## Register Subscription
-
+```
 curl -X POST http://127.0.0.1:8000/subscriptions/ \
 -H "Content-Type: application/json" \
 -d '{
@@ -93,9 +103,10 @@ curl -X POST http://127.0.0.1:8000/subscriptions/ \
   "secret": "mysecret",
   "event_types": ["order.created"]
 }'
+```
 
 ## Publish Event
-
+```
 curl -X POST http://127.0.0.1:8000/events/ \
 -H "Content-Type: application/json" \
 -d '{
@@ -104,14 +115,15 @@ curl -X POST http://127.0.0.1:8000/events/ \
     "order_id": 101
   }
 }'
-
+```
 
 ## Delivery Logs
-
+```
 curl http://127.0.0.1:8000/deliveries/
-
+```
 
 ## Retry Strategy
+```
 Retries use exponential backoff:
 
 Attempt 1 → 2 sec
@@ -119,7 +131,7 @@ Attempt 2 → 4 sec
 Attempt 3 → 8 sec
 Attempt 4 → 16 sec
 Attempt 5 → FAILED
-
+```
 ## Security
 
 ### Payloads are signed using: HMAC-SHA256
