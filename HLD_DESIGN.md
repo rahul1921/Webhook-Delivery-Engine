@@ -58,20 +58,22 @@ Webhook Subscribers
 # Core APIs
 
 ## Subscription APIs
-
+```
 POST /subscriptions/
 GET /subscriptions/
 PUT /subscriptions/{id}
+```
 
 ## Event APIs
-
+```
 POST /events/
 GET /events/
+```
 
 ## Delivery APIs
-
+```
 GET /deliveries/
-
+```
 ---
 
 # Delivery Lifecycle
@@ -91,13 +93,13 @@ PROCESSING
 ---
 
 # Retry Mechanism
-
+```
 Exponential Backoff:
 
 2^attempt seconds
 
 Max attempts: 5
-
+```
 ---
 
 # Why Async Delivery?
