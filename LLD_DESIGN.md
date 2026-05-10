@@ -1,7 +1,7 @@
 # Low Level Design
 
 # Folder Structure
-
+```
 app/
 ├── api/
 ├── services/
@@ -10,7 +10,7 @@ app/
 ├── schemas/
 ├── worker/
 └── main.py
-
+```
 ---
 
 # Design Principles
@@ -104,10 +104,10 @@ while True:
 ---
 
 # Retry Logic
-
+```
 next_retry =
     now + (2 ^ attempt_count)
-
+```
 ---
 
 # Database Tables
