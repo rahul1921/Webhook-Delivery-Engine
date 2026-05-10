@@ -38,7 +38,7 @@ Build a scalable asynchronous webhook delivery engine.
 ---
 
 # Architecture Flow
-
+```
 Client
   |
   v
@@ -52,7 +52,7 @@ Background Worker
   |
   v
 Webhook Subscribers
-
+```
 ---
 
 # Core APIs
@@ -75,7 +75,7 @@ GET /deliveries/
 ---
 
 # Delivery Lifecycle
-
+```
 PENDING
    |
    v
@@ -87,7 +87,7 @@ PROCESSING
                |
                v
             FAILED
-
+```
 ---
 
 # Retry Mechanism
